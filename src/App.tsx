@@ -1,22 +1,18 @@
-import { useState } from 'react';
 import './App.css';
+import { useCountStore } from './features/counter/store';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { count, increment, decrement } = useCountStore();
 
   return (
     <>
       <h1>리액트 상태 관리 라이브러리 에제</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Increment value
-        </button>
+        <button onClick={increment}>Increment value</button>
       </div>
       <span>{count}</span>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Decrement value
-        </button>
+        <button onClick={decrement}>Decrement value</button>
       </div>
     </>
   );
